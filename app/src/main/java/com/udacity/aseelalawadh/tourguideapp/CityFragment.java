@@ -1,0 +1,47 @@
+package com.udacity.aseelalawadh.tourguideapp;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CityFragment extends Fragment {
+
+    private ListView list_view;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_city, container, false);
+
+        ArrayList<String> cities = new ArrayList<>();
+        for (int i = 0; i< 5; i++) {
+
+            String city = new String("city" + (i+1));
+            cities.add(city);
+        }
+
+
+        CityAdapter adapter = new CityAdapter(view.getContext(), cities);
+        list_view = view.findViewById(R.id.list_view);
+        list_view.setAdapter(adapter);
+
+        list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Log.v("TAG: CityFragment", "clicked");
+            }
+        });
+
+        return view;
+    }
+
+
+}
+
