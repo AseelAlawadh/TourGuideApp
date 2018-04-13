@@ -14,7 +14,6 @@ public class City {
     private ArrayList<String> events;
     private ArrayList<String> resturant;
     private ArrayList<String> places;
-    
 
     public City(String name, int imageResourceId, ArrayList<String> events, ArrayList<String> places, ArrayList<String> resturant, ArrayList<String> malls) {
         this.name = name;
@@ -24,7 +23,6 @@ public class City {
         this.resturant = resturant;
         this.places = places;
     }
-
 
     public String getName() {
         return name;

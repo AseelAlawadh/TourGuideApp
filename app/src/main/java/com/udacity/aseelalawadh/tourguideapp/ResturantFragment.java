@@ -30,16 +30,12 @@ public class ResturantFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_resturant, container, false);
 
-
-
         ResturantsAdapter adapter = new ResturantsAdapter(view.getContext(), resturant);
         list_view = view.findViewById(R.id.list_view);
         list_view.setAdapter(adapter);
-
         list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.v("TAG: CityFragment", "clicked");
             }
         });
 

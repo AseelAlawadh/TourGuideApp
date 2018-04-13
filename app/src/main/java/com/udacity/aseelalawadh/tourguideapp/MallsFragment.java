@@ -30,16 +30,12 @@ public class MallsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_malls, container, false);
 
-
-
         MallsAdapter adapter = new MallsAdapter(view.getContext(), malls);
         list_view = view.findViewById(R.id.list_view);
         list_view.setAdapter(adapter);
-
         list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.v("TAG: CityFragment", "clicked");
             }
         });
 

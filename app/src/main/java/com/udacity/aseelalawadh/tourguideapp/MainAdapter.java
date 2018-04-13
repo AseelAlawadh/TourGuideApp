@@ -37,7 +37,7 @@ public class MainAdapter extends ArrayAdapter<City> {
         if (item.hasImage()) {
             imageView.setImageResource(item.getImageResourceId());
             imageView.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             imageView.setVisibility(View.GONE);
         }
 

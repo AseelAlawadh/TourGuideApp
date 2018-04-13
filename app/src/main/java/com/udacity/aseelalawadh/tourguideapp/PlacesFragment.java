@@ -29,17 +29,12 @@ public class PlacesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_places, container, false);
-
-
-
         PlacesAdapter adapter = new PlacesAdapter(view.getContext(), places);
         list_view = view.findViewById(R.id.list_view);
         list_view.setAdapter(adapter);
-
         list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.v("TAG: CityFragment", "clicked");
             }
         });
 

@@ -34,7 +34,6 @@ public class EventFragment extends Fragment {
         list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.v("TAG: CityFragment", "clicked");
             }
         });
 

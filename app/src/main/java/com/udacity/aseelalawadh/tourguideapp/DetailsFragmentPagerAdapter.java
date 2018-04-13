@@ -50,7 +50,6 @@ public class DetailsFragmentPagerAdapter extends FragmentPagerAdapter {
         } else {
             return new MallsFragment(malls);
         }
-
     }
 
     @Override
@@ -66,7 +65,6 @@ public class DetailsFragmentPagerAdapter extends FragmentPagerAdapter {
             return context.getString(R.string.malls);
         }
     }
-
 
     @Override
     public int getCount() {
