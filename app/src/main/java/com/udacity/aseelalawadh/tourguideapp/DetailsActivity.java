@@ -3,12 +3,14 @@ package com.udacity.aseelalawadh.tourguideapp;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 
 import java.util.ArrayList;
 
 public class DetailsActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +26,8 @@ public class DetailsActivity extends AppCompatActivity {
         ArrayList<String> resturants = extras.getStringArrayList("RESTURANT");
         ArrayList<String> malls = extras.getStringArrayList("MALLS");
 
-
-
         // Create an adapter that knows which fragment should be shown on each page
-        DetailsFragmentPagerAdapter adapter = new DetailsFragmentPagerAdapter(getSupportFragmentManager());
+        DetailsFragmentPagerAdapter adapter = new DetailsFragmentPagerAdapter(this, getSupportFragmentManager());
 
         adapter.setEvents(events);
         adapter.setMalls(malls);
@@ -38,9 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
 
-
-
-
-
+        tabLayout = findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }

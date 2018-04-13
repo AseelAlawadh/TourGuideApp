@@ -42,8 +42,9 @@ public class MainActivity extends AppCompatActivity {
             malls.add(item);
         }
 
-        City city = new City("Riyadh" ,events,places,resturants,malls);
+        City city = new City("Riyadh" ,events ,places ,resturants ,malls);
         City city2 = new City("Dubai" ,events,places,resturants,malls);
+
         final ArrayList<City> cities = new ArrayList<>();
         cities.add(city);
         cities.add(city2);

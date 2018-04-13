@@ -1,8 +1,9 @@
 package com.udacity.aseelalawadh.tourguideapp;
+
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,12 @@ public class DetailsFragmentPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<String> events;
     private ArrayList<String> resturant;
     private ArrayList<String> places;
+    private Context context;
+
+    public DetailsFragmentPagerAdapter(Context context, FragmentManager fm) {
+        super(fm);
+        this.context = context;
+    }
 
     public void setMalls(ArrayList<String> malls) {
         this.malls = malls;
@@ -31,17 +38,12 @@ public class DetailsFragmentPagerAdapter extends FragmentPagerAdapter {
         this.places = places;
     }
 
-    public DetailsFragmentPagerAdapter(FragmentManager fm) {
-        super(fm);
-    }
-
     @Override
     public Fragment getItem(int position) {
-        Log.v("DetailsFragmentPagerAdapter", String.valueOf(position));
 
         if (position == 0) {
             return new EventFragment(events);
-        } else if (position == 1){
+        } else if (position == 1) {
             return new PlacesFragment(places);
         } else if (position == 2) {
             return new ResturantFragment(resturant);
@@ -50,6 +52,21 @@ public class DetailsFragmentPagerAdapter extends FragmentPagerAdapter {
         }
 
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        if (position == 0) {
+            return context.getString(R.string.event);
+        } else if (position == 1) {
+            return context.getString(R.string.places);
+        } else if (position == 2) {
+            return context.getString(R.string.resturant);
+        } else {
+            return context.getString(R.string.malls);
+        }
+    }
+
 
     @Override
     public int getCount() {

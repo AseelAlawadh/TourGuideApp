@@ -13,7 +13,7 @@ public class City {
     private ArrayList<String> resturant;
     private ArrayList<String> places;
 
-    public City(String name, ArrayList<String> malls, ArrayList<String> events, ArrayList<String> resturant, ArrayList<String> places) {
+    public City(String name, ArrayList<String> events, ArrayList<String> places, ArrayList<String> resturant, ArrayList<String> malls) {
         this.name = name;
         this.malls = malls;
         this.events = events;
