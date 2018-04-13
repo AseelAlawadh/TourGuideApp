@@ -1,5 +1,6 @@
 package com.udacity.aseelalawadh.tourguideapp;
-import android.content.Intent;
+
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,25 +11,28 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class CityFragment extends Fragment {
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ResturantFragment extends Fragment {
+
+    private ArrayList<String> resturant;
+    public ResturantFragment(ArrayList<String> resturant) {
+        this.resturant = resturant;
+    }
 
     private ListView list_view;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_city, container, false);
-
-        ArrayList<String> cities = new ArrayList<>();
-        for (int i = 0; i< 5; i++) {
-
-            String city = new String("city" + (i+1));
-            cities.add(city);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_resturant, container, false);
 
 
-        CityAdapter adapter = new CityAdapter(view.getContext(), cities);
+
+        ResturantsAdapter adapter = new ResturantsAdapter(view.getContext(), resturant);
         list_view = view.findViewById(R.id.list_view);
         list_view.setAdapter(adapter);
 
@@ -40,8 +44,6 @@ public class CityFragment extends Fragment {
         });
 
         return view;
+
     }
-
-
 }
-

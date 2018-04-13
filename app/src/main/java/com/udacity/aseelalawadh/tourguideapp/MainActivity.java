@@ -20,13 +20,33 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        ArrayList<String> cities = new ArrayList<>();
-        for (int i = 0; i< 5; i++) {
-
-            String city = new String("city" + (i+1));
-            cities.add(city);
+        ArrayList<String> events = new ArrayList<>();
+        for (int i = 0; i< 2; i++) {
+            String item = new String("Event" + (i+1));
+            events.add(item);
         }
 
+        ArrayList<String> places = new ArrayList<>();
+        for (int i = 0; i< 4; i++) {
+            String item = new String("Place" + (i+1));
+            places.add(item);
+        }
+        ArrayList<String> resturants = new ArrayList<>();
+        for (int i = 0; i< 3; i++) {
+            String item = new String("Resturant" + (i+1));
+            resturants.add(item);
+        }
+        ArrayList<String> malls = new ArrayList<>();
+        for (int i = 0; i< 2; i++) {
+            String item = new String("Mall" + (i+1));
+            malls.add(item);
+        }
+
+        City city = new City("Riyadh" ,events,places,resturants,malls);
+        City city2 = new City("Dubai" ,events,places,resturants,malls);
+        final ArrayList<City> cities = new ArrayList<>();
+        cities.add(city);
+        cities.add(city2);
 
         MainAdapter adapter = new MainAdapter(this, cities);
         list_view = findViewById(R.id.list_view);
@@ -36,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
+                City item = cities.get(position);
+
+                intent.putStringArrayListExtra("EVENTS", item.getEvents());
+                intent.putStringArrayListExtra("PLACES", item.getPlaces());
+                intent.putStringArrayListExtra("RESTURANT", item.getResturant());
+                intent.putStringArrayListExtra("MALLS", item.getMalls());
                 startActivity(intent);
             }
         });

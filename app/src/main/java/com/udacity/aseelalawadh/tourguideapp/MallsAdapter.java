@@ -1,5 +1,6 @@
 package com.udacity.aseelalawadh.tourguideapp;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +10,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by aseelalawadh on 11/04/2018.
+ * Created by aseelalawadh on 13/04/2018.
  */
 
-public class MainAdapter extends ArrayAdapter<City> {
+public class MallsAdapter extends ArrayAdapter<String> {
 
-    public MainAdapter(MainActivity context, ArrayList<City> items) {
+    public MallsAdapter(Context context, ArrayList<String> items) {
         super(context, 0, items);
     }
 
@@ -24,11 +25,11 @@ public class MainAdapter extends ArrayAdapter<City> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_layout, parent, false);
         }
 
-        City item = getItem(position);
+        String item = getItem(position);
         TextView id = listItemView.findViewById(R.id.id_textView);
         id.setText(String.valueOf(position + 1));
         TextView songName = listItemView.findViewById(R.id.title_textView);
-        songName.setText(item.getName());
+        songName.setText(item);
         return listItemView;
     }
 }

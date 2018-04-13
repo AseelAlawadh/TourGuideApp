@@ -1,5 +1,6 @@
 package com.udacity.aseelalawadh.tourguideapp;
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -8,26 +9,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 
 
-
-public class EventFragment extends Fragment {
-
-    private ArrayList<String> events;
-
-    public EventFragment(ArrayList<String> events) {
-        this.events = events;
-
-    }
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class MallsFragment extends Fragment {
 
     private ListView list_view;
+
+    private ArrayList<String> malls;
+    public MallsFragment(ArrayList<String> malls) {
+        this.malls = malls;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_event, container, false);
+        View view = inflater.inflate(R.layout.fragment_malls, container, false);
 
-        EventAdapter adapter = new EventAdapter(view.getContext(), events);
+
+
+        MallsAdapter adapter = new MallsAdapter(view.getContext(), malls);
         list_view = view.findViewById(R.id.list_view);
         list_view.setAdapter(adapter);
 
@@ -39,5 +44,7 @@ public class EventFragment extends Fragment {
         });
 
         return view;
+
     }
+
 }

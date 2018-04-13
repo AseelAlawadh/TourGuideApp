@@ -9,10 +9,14 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class CityAdapter extends ArrayAdapter<String> {
+/**
+ * Created by aseelalawadh on 13/04/2018.
+ */
 
-    public CityAdapter(Context context, ArrayList<String> artists) {
-        super(context, 0, artists);
+public class ResturantsAdapter extends ArrayAdapter<String> {
+
+    public ResturantsAdapter(Context context, ArrayList<String> items) {
+        super(context, 0, items);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
