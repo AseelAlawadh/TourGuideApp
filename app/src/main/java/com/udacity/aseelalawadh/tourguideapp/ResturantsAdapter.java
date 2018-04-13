@@ -22,7 +22,7 @@ public class ResturantsAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
         if (listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_layout, parent, false);
+            listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_title, parent, false);
         }
 
         String item = getItem(position);

@@ -8,18 +8,23 @@ import java.util.ArrayList;
 
 public class City {
     private String name;
+    private static final int NO_IMAGE_PROVIDED = -1;
+    private int imageResourceId = NO_IMAGE_PROVIDED;
     private ArrayList<String> malls;
     private ArrayList<String> events;
     private ArrayList<String> resturant;
     private ArrayList<String> places;
+    
 
-    public City(String name, ArrayList<String> events, ArrayList<String> places, ArrayList<String> resturant, ArrayList<String> malls) {
+    public City(String name, int imageResourceId, ArrayList<String> events, ArrayList<String> places, ArrayList<String> resturant, ArrayList<String> malls) {
         this.name = name;
+        this.imageResourceId = imageResourceId;
         this.malls = malls;
         this.events = events;
         this.resturant = resturant;
         this.places = places;
     }
+
 
     public String getName() {
         return name;
@@ -29,6 +34,16 @@ public class City {
         this.name = name;
     }
 
+    public int getImageResourceId() {
+        return imageResourceId;
+    }
+    //Return if item has image or not
+    public boolean hasImage() {
+        return imageResourceId != NO_IMAGE_PROVIDED;
+    }
+    public void setImageResourceId(int imageResourceId) {
+        this.imageResourceId = imageResourceId;
+    }
     public ArrayList<String> getMalls() {
         return malls;
     }

@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         ArrayList<String> events = new ArrayList<>();
         for (int i = 0; i< 2; i++) {
             String item = new String("Event" + (i+1));
@@ -42,12 +41,18 @@ public class MainActivity extends AppCompatActivity {
             malls.add(item);
         }
 
-        City city = new City("Riyadh" ,events ,places ,resturants ,malls);
-        City city2 = new City("Dubai" ,events,places,resturants,malls);
+//        City city = new City("Riyadh" ,events ,places ,resturants ,malls);
+       // City city2 = new City("Dubai" ,events,places,resturants,malls);
+
+        City riaydhCity = new City("Riyadh", R.drawable.riyadh,events ,places ,resturants ,malls);
+        City dubaiCity = new City("Dubai", R.drawable.dubai,events ,places ,resturants ,malls);
+
+
 
         final ArrayList<City> cities = new ArrayList<>();
-        cities.add(city);
-        cities.add(city2);
+       // cities.add(city);
+        cities.add(riaydhCity);
+        cities.add(dubaiCity);
 
         MainAdapter adapter = new MainAdapter(this, cities);
         list_view = findViewById(R.id.list_view);

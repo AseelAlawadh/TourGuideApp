@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -25,10 +26,21 @@ public class MainAdapter extends ArrayAdapter<City> {
         }
 
         City item = getItem(position);
+
         TextView id = listItemView.findViewById(R.id.id_textView);
         id.setText(String.valueOf(position + 1));
-        TextView songName = listItemView.findViewById(R.id.title_textView);
-        songName.setText(item.getName());
+
+        TextView cityName = listItemView.findViewById(R.id.title_textView);
+        cityName.setText(item.getName());
+
+        ImageView imageView = listItemView.findViewById(R.id.image);
+        if (item.hasImage()) {
+            imageView.setImageResource(item.getImageResourceId());
+            imageView.setVisibility(View.VISIBLE);
+        }else {
+            imageView.setVisibility(View.GONE);
+        }
+
         return listItemView;
     }
 }
