@@ -13,9 +13,9 @@ import java.util.ArrayList;
  * Created by aseelalawadh on 13/04/2018.
  */
 
-public class MallsAdapter extends ArrayAdapter<String> {
+public class MallsAdapter extends ArrayAdapter<Mall> {
 
-    public MallsAdapter(Context context, ArrayList<String> items) {
+    public MallsAdapter(Context context, ArrayList<Mall> items) {
         super(context, 0, items);
     }
 
@@ -25,11 +25,14 @@ public class MallsAdapter extends ArrayAdapter<String> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_title, parent, false);
         }
 
-        String item = getItem(position);
-        TextView id = listItemView.findViewById(R.id.id_textView);
-        id.setText(String.valueOf(position + 1));
-        TextView songName = listItemView.findViewById(R.id.title_textView);
-        songName.setText(item);
+        Mall item = getItem(position);
+        TextView name = listItemView.findViewById(R.id.name_textView);
+        name.setText(item.getName());
+        TextView address = listItemView.findViewById(R.id.address_textView);
+        address.setText(item.getAddress());
         return listItemView;
+
+
     }
+
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ccc7b9"
@@ -7,21 +7,15 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/id_textView"
-        android:layout_width="50dp"
+        android:id="@+id/name_textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/title_textView"
-        android:layout_alignBottom="@+id/title_textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:text="@string/id" />
 
     <TextView
-        android:id="@+id/title_textView"
-        android:layout_width="150dp"
+        android:id="@+id/address_textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/id_textView"
-        android:layout_toRightOf="@+id/id_textView"
         android:text="@string/city_name" />
 
-</RelativeLayout>
+</LinearLayout>

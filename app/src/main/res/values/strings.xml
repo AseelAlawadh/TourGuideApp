@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">Tour Guide App</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="malls">Malls</string>
     <string name="resturant">Resturant</string>
     <string name="places">Places</string>
     <string name="event">Event</string>
     <string name="id">id</string>
+    <string name="name">name</string>
+    <string name="address">address</string>
     <string name="city_name">City name</string>
+    <string name="tagEvents">EVENTS</string>
+    <string name="tagPlaces">PLACES</string>
+    <string name="tagRESTURANT">RESTURANT</string>
+    <string name="tagMalls">MALLS</string>
+    <string name="cityName1">Riyadh</string>
+    <string name="cityName2">Dubai</string>
 </resources>

@@ -27,8 +27,6 @@ public class MainAdapter extends ArrayAdapter<City> {
 
         City item = getItem(position);
 
-        TextView id = listItemView.findViewById(R.id.id_textView);
-        id.setText(String.valueOf(position + 1));
 
         TextView cityName = listItemView.findViewById(R.id.title_textView);
         cityName.setText(item.getName());

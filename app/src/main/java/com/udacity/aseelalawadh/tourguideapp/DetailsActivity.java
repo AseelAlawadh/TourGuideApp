@@ -1,9 +1,9 @@
 package com.udacity.aseelalawadh.tourguideapp;
 
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -21,10 +21,10 @@ public class DetailsActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager);
 
         Bundle extras = getIntent().getExtras();
-        ArrayList<String> events = extras.getStringArrayList("EVENTS");
-        ArrayList<String> places = extras.getStringArrayList("PLACES");
-        ArrayList<String> resturants = extras.getStringArrayList("RESTURANT");
-        ArrayList<String> malls = extras.getStringArrayList("MALLS");
+        ArrayList<Event> events = extras.getParcelableArrayList(getString(R.string.tagEvents));
+        ArrayList<Places> places = extras.getParcelableArrayList(getString(R.string.tagPlaces));
+        ArrayList<Resturant> resturants = extras.getParcelableArrayList(getString(R.string.tagRESTURANT));
+        ArrayList<Mall> malls = extras.getParcelableArrayList(getString(R.string.tagMalls));
 
         // Create an adapter that knows which fragment should be shown on each page
         DetailsFragmentPagerAdapter adapter = new DetailsFragmentPagerAdapter(this, getSupportFragmentManager());
@@ -33,7 +33,6 @@ public class DetailsActivity extends AppCompatActivity {
         adapter.setMalls(malls);
         adapter.setPlaces(places);
         adapter.setResturant(resturants);
-
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);

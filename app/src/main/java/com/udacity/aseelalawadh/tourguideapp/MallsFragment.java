@@ -3,7 +3,6 @@ package com.udacity.aseelalawadh.tourguideapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +19,9 @@ public class MallsFragment extends Fragment {
 
     private ListView list_view;
 
-    private ArrayList<String> malls;
-    public MallsFragment(ArrayList<String> malls) {
+    private ArrayList<Mall> malls;
+
+    public MallsFragment(ArrayList<Mall> malls) {
         this.malls = malls;
     }
 
@@ -40,7 +40,5 @@ public class MallsFragment extends Fragment {
         });
 
         return view;
-
     }
-
 }

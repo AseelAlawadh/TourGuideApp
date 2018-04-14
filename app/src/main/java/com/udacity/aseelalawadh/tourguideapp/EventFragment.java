@@ -2,26 +2,27 @@ package com.udacity.aseelalawadh.tourguideapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 
 
 public class EventFragment extends Fragment {
 
-    private ArrayList<String> events;
+    private ArrayList<Event> events;
+    private ListView list_view;
 
-    public EventFragment(ArrayList<String> events) {
-        this.events = events;
-
+    public EventFragment() {
     }
 
-    private ListView list_view;
+    public EventFragment(ArrayList<Event> events) {
+        this.events = events;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

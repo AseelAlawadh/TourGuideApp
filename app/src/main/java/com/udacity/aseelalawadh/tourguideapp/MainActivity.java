@@ -11,6 +11,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String STREET_SHOW = "Street Show";
+    public static final String JBR = "JBR";
+    public static final String AM = "9 AM";
+    public static final String DUBAI_BRIDGE = "Dubai Bridge";
+    public static final String DUABAI_MAIN_STREET = "Duabai Main Street";
+    public static final String I_HOP = "iHop";
+    public static final String DUBAI_MALL = "Dubai Mall";
+    public static final String DUBAI_STREET = "Dubai Street";
+    public static final String RIYADH_BRIDGE = "Riyadh Bridge";
+    public static final String RIYADH_MAIN_STREET = "Riyadh Main Street";
+    public static final String RIYADH_MALL = "Riyadh Mall";
+    public static final String RIYADH_STREET = "Riyadh Street";
     private ListView list_view;
     private ArrayList<City> cities = new ArrayList<>();
 
@@ -21,30 +33,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        ArrayList<String> events = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            String item = new String("Event" + (i + 1));
-            events.add(item);
-        }
 
-        ArrayList<String> places = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            String item = new String("Place" + (i + 1));
-            places.add(item);
-        }
-        ArrayList<String> resturants = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
-            String item = new String("Resturant" + (i + 1));
-            resturants.add(item);
-        }
-        ArrayList<String> malls = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            String item = new String("Mall" + (i + 1));
-            malls.add(item);
-        }
-
-        City riaydhCity = new City("Riyadh", R.drawable.riyadh, events, places, resturants, malls);
-        City dubaiCity = new City("Dubai", R.drawable.dubai, events, places, resturants, malls);
+        City riaydhCity = this.riyadhCity();
+        City dubaiCity = this.dubaiCity();
 
         cities.add(riaydhCity);
         cities.add(dubaiCity);
@@ -59,13 +50,63 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
                 City item = cities.get(position);
 
-                intent.putStringArrayListExtra("EVENTS", item.getEvents());
-                intent.putStringArrayListExtra("PLACES", item.getPlaces());
-                intent.putStringArrayListExtra("RESTURANT", item.getResturant());
-                intent.putStringArrayListExtra("MALLS", item.getMalls());
+                intent.putParcelableArrayListExtra(getString(R.string.tagEvents), item.getEvents());
+                intent.putParcelableArrayListExtra(getString(R.string.tagPlaces), item.getPlaces());
+                intent.putParcelableArrayListExtra(getString(R.string.tagRESTURANT), item.getResturant());
+                intent.putParcelableArrayListExtra(getString(R.string.tagMalls), item.getMalls());
                 startActivity(intent);
             }
         });
 
+    }
+
+    City dubaiCity() {
+        // content of Events !
+        ArrayList<Event> events = new ArrayList<>();
+        Event event1 = new Event(STREET_SHOW, JBR, AM);
+        Event event2 = new Event(STREET_SHOW, JBR, AM);
+        events.add(event1);
+        events.add(event2);
+        // content of Place
+        ArrayList<Places> places = new ArrayList<>();
+        Places place1 = new Places(DUBAI_BRIDGE, DUABAI_MAIN_STREET);
+        places.add(place1);
+
+        // content of Resturant !
+        ArrayList<Resturant> resturants = new ArrayList<>();
+        Resturant rest1 = new Resturant(I_HOP, DUBAI_MALL);
+        resturants.add(rest1);
+
+        // content of Malls !
+        ArrayList<Mall> malls = new ArrayList<>();
+        Mall mall1 = new Mall(DUBAI_MALL, DUBAI_STREET);
+        malls.add(mall1);
+
+        return new City(getString(R.string.cityName2), R.drawable.dubai, events, places, resturants, malls);
+    }
+
+    City riyadhCity() {
+        // content of Events !
+        ArrayList<Event> events = new ArrayList<>();
+        Event event1 = new Event(STREET_SHOW, JBR, AM);
+        Event event2 = new Event(STREET_SHOW, JBR, AM);
+        events.add(event1);
+        events.add(event2);
+        // content of Place
+        ArrayList<Places> places = new ArrayList<>();
+        Places place1 = new Places(RIYADH_BRIDGE, RIYADH_MAIN_STREET);
+        places.add(place1);
+
+        // content of Resturant !
+        ArrayList<Resturant> resturants = new ArrayList<>();
+        Resturant rest1 = new Resturant(I_HOP, RIYADH_MALL);
+        resturants.add(rest1);
+
+        // content of Malls !
+        ArrayList<Mall> malls = new ArrayList<>();
+        Mall mall1 = new Mall(RIYADH_MALL, RIYADH_STREET);
+        malls.add(mall1);
+
+        return new City(getString(R.string.cityName1), R.drawable.riyadh, events, places, resturants, malls);
     }
 }

@@ -1,4 +1,5 @@
 package com.udacity.aseelalawadh.tourguideapp;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +9,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class EventAdapter extends ArrayAdapter<String> {
+public class EventAdapter extends ArrayAdapter<Event> {
 
-    public EventAdapter(Context context, ArrayList<String> events) {
+    public EventAdapter(Context context, ArrayList<Event> events) {
         super(context, 0, events);
     }
 
@@ -20,11 +21,11 @@ public class EventAdapter extends ArrayAdapter<String> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_title, parent, false);
         }
 
-        String item = getItem(position);
-        TextView id = listItemView.findViewById(R.id.id_textView);
-        id.setText(String.valueOf(position + 1));
-        TextView songName = listItemView.findViewById(R.id.title_textView);
-        songName.setText(item);
+        Event item = getItem(position);
+        TextView name = listItemView.findViewById(R.id.name_textView);
+        name.setText(item.getName());
+        TextView address = listItemView.findViewById(R.id.address_textView);
+        address.setText(item.getAddress());
         return listItemView;
     }
 }

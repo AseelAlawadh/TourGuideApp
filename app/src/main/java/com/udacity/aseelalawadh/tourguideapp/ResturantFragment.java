@@ -3,7 +3,6 @@ package com.udacity.aseelalawadh.tourguideapp;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,12 +17,12 @@ import java.util.ArrayList;
  */
 public class ResturantFragment extends Fragment {
 
-    private ArrayList<String> resturant;
-    public ResturantFragment(ArrayList<String> resturant) {
+    private ArrayList<Resturant> resturant;
+    private ListView list_view;
+
+    public ResturantFragment(ArrayList<Resturant> resturant) {
         this.resturant = resturant;
     }
-
-    private ListView list_view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +39,5 @@ public class ResturantFragment extends Fragment {
         });
 
         return view;
-
     }
 }

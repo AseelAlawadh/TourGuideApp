@@ -13,9 +13,9 @@ import java.util.ArrayList;
  * Created by aseelalawadh on 13/04/2018.
  */
 
-public class ResturantsAdapter extends ArrayAdapter<String> {
+public class ResturantsAdapter extends ArrayAdapter<Resturant> {
 
-    public ResturantsAdapter(Context context, ArrayList<String> items) {
+    public ResturantsAdapter(Context context, ArrayList<Resturant> items) {
         super(context, 0, items);
     }
 
@@ -25,11 +25,11 @@ public class ResturantsAdapter extends ArrayAdapter<String> {
             listItemView = LayoutInflater.from(getContext()).inflate(R.layout.list_item_title, parent, false);
         }
 
-        String item = getItem(position);
-        TextView id = listItemView.findViewById(R.id.id_textView);
-        id.setText(String.valueOf(position + 1));
-        TextView songName = listItemView.findViewById(R.id.title_textView);
-        songName.setText(item);
+        Resturant item = getItem(position);
+        TextView name = listItemView.findViewById(R.id.name_textView);
+        name.setText(item.getName());
+        TextView address = listItemView.findViewById(R.id.address_textView);
+        address.setText(item.getAddress());
         return listItemView;
     }
 }

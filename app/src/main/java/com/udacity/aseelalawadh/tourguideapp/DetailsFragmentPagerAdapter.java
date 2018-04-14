@@ -10,11 +10,10 @@ import java.util.ArrayList;
 
 public class DetailsFragmentPagerAdapter extends FragmentPagerAdapter {
 
-
-    private ArrayList<String> malls;
-    private ArrayList<String> events;
-    private ArrayList<String> resturant;
-    private ArrayList<String> places;
+    private ArrayList<Mall> malls;
+    private ArrayList<Event> events;
+    private ArrayList<Resturant> resturant;
+    private ArrayList<Places> places;
     private Context context;
 
     public DetailsFragmentPagerAdapter(Context context, FragmentManager fm) {
@@ -22,19 +21,19 @@ public class DetailsFragmentPagerAdapter extends FragmentPagerAdapter {
         this.context = context;
     }
 
-    public void setMalls(ArrayList<String> malls) {
+    public void setMalls(ArrayList<Mall> malls) {
         this.malls = malls;
     }
 
-    public void setEvents(ArrayList<String> events) {
+    public void setEvents(ArrayList<Event> events) {
         this.events = events;
     }
 
-    public void setResturant(ArrayList<String> resturant) {
+    public void setResturant(ArrayList<Resturant> resturant) {
         this.resturant = resturant;
     }
 
-    public void setPlaces(ArrayList<String> places) {
+    public void setPlaces(ArrayList<Places> places) {
         this.places = places;
     }
 
